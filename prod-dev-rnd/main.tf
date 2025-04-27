@@ -21,13 +21,12 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
-# Create a security group to allow HTTP (port 80) and SSH (port 22) traffic
 resource "aws_security_group" "web_sg" {
   name        = "${var.instance_name}-sg"
   description = "Allow HTTP and SSH traffic"
-  vpc_id      = var.vpc_id  # You can pass your VPC id as a variable
+  vpc_id      = var.vpc_id
 
-  # Allow HTTP traffic (port 80)
+
   ingress {
     from_port   = 80
     to_port     = 80
@@ -35,7 +34,6 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["0.0.0.0/0"]  # Allow from anywhere
   }
 
-  # Allow SSH traffic (port 22)
   ingress {
     from_port   = 22
     to_port     = 22
@@ -76,6 +74,5 @@ resource "aws_instance" "web_server" {
 # Create an Elastic IP (EIP)
 resource "aws_eip" "web_eip" {
   instance = aws_instance.web_server.id
-  vpc      = true
 }
 
