@@ -22,3 +22,9 @@ terraform workspace select prod  # or create if doesn't exist
 ``` terraform plan -var-file="prod.tfvars"
     terraform apply -var-file="prod.tfvars"
 ```
+*  Destory resources with dev, prod.tfvars:
+
+``` 
+terraform destroy -var-file="prod.tfvars"
+terraform destroy -var-file="dev.tfvars"
+```
