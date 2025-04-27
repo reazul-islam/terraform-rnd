@@ -1,0 +1,10 @@
+#create files as your required environment -> dev.tfvars, prod.tfvars
+
+aws_region     = "ap-southeast-1"
+ami_id         = "ami-01938df366ac2d954"
+instance_type  = "t2.micro"
+instance_name  = "dev-server"
+environment    = "dev"
+access_key = ""
+secret_key = ""
+vpc_id = "vpc-*************"
